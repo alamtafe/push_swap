@@ -16,11 +16,13 @@ int main(int argc, char **argv)
     t_list *a;
 
     i = 1;
-    a = new_list(ft_atoi(argv[i]));
     if (argc == 1)
-        write (2,"error\n",1);
-    i++;
-    while (i < argc)
+    {
+       write (2,"error\n",6);
+       return(0) ;
+    }
+    a = NULL;
+    while (argv[i])
     {
         add_back(&a,parsing(argv[i]));
         i++;
