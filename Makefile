@@ -1,7 +1,8 @@
 NAME =  push_swap
 CC = cc 
 CFLAGS = -Wall -Wextra -Werror
-SRC = main.c parsing/parsing.c utils/add_back.c utils/ft_atoi.c utils/new_list.c
+SRC = main.c parsing/parsing.c utils/add_back.c utils/ft_atoi.c utils/new_list.c \
+		operations/reverse_rotate.c operations/swap.c operations/push.c operations/rotate.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
