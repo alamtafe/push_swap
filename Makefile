@@ -1,23 +1,28 @@
 NAME =  push_swap
 CC = cc 
 CFLAGS = -Wall -Wextra -Werror
-SRC = main.c parsing/parsing.c utils/add_back.c utils/ft_atoi.c utils/new_list.c \
-		operations/reverse_rotate.c operations/swap.c operations/push.c operations/rotate.c
+SRC = main.c utils/utils_lst/add_back.c utils/utils_lst/ft_atoi.c utils/utils_lst/new_list.c utils/utils_lst/lst_size.c \
+		operations/reverse_rotate.c operations/swap.c operations/push.c operations/rotate.c \
+		sorting/simple.c \
+		parsing/parsing.c \
+		utils/utils_sorting/find_min.c utils/utils_sorting/find_pos.c utils/utils_sorting/mov_min_to_top.c \
+		utils/utils_sorting/is_sorted.c \
+
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC)  $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC)    $(CFLAGS)   $(OBJ) -o $(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I . -c $< -o $@
+%.o: %.c push_swap.h
+	$(CC)  $(CFLAGS) -I . -c $< -o $@
 
 clean:
-	rm $(OBJ) 
+	rm -rf $(OBJ) 
 
 fclean: clean
-	rm $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 
