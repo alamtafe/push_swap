@@ -26,11 +26,17 @@ typedef struct s_list
 //  prototype of utils for sorting:
 int					find_min(t_list *a);
 int					find_pos(t_list *a, int value);
+int					find_pos_index(t_list *a, int index);
 void				mov_min_to_top(t_list **lst, int min);
 int					is_sorted(t_list *a);
+void				set_index(t_list *lst);
+int					find_sqrt(int n);
+void				mov_max_to_top_index(t_list **a, int max);
+void				push_chunks(t_list **a, t_list **b, int chunk_size,
+						int max);
 // prototype parsing prototype :
 t_list				*parsing(char *arg);
-int				ft_atoi(char *str);
+int					ft_atoi(char *str);
 // prototype utils list  :
 void				add_back(t_list **list, t_list *new);
 t_list				*new_list(int value);
@@ -53,4 +59,5 @@ void				rrb(t_list **b);
 void				rrr(t_list **a, t_list **b);
 // sorting ptototype :
 void				selction_sort(t_list **a);
+void				chunk_sort(t_list **a);
 #endif

@@ -40,9 +40,9 @@ void	rb(t_list **b)
 	write(1, "rb\n", 3);
 }
 
-void	rr(t_list **a, t_list **b)
+void	rr(t_list **first, t_list **second)
 {
-	rotate(a);
-	rotate(b);
+	rotate(first);
+	rotate(second);
 	write(1, "rr\n", 3);
 }
