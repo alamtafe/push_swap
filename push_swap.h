@@ -13,35 +13,45 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_list
+typedef struct s_stack
 {
 	int				value;
-	struct s_list	*next;
-}					t_list;
+	struct s_stack	*next;
+}					t_stack;
 
-int					ft_atoi(char *str);
+long				ft_atol(char *str);
 // parsing prototype :
-t_list				*parsing(char *arg);
+t_stack				*parsing(int argc, char **argv);
 // list prototype :
-void				add_back(t_list **list, t_list *new);
-t_list				*new_list(int value);
+void				add_back(t_stack **list, t_stack *new);
+t_stack				*new_list(int value);
 // opration prototype :
-void				swap(t_list **list);
-void				sa(t_list **a);
-void				sb(t_list **b);
-void				ss(t_list **a, t_list **b);
-void				push(t_list **dest, t_list **src);
-void				pa(t_list **a, t_list **b);
-void				pb(t_list **b, t_list **a);
-void				rotate(t_list **list);
-void				ra(t_list **a);
-void				rb(t_list **b);
-void				rr(t_list **a, t_list **b);
-void				reverse_rotate(t_list **list);
-void				rra(t_list **a);
-void				rrb(t_list **b);
-void				rrr(t_list **a, t_list **b);
+void				swap(t_stack **list);
+void				sa(t_stack **a);
+void				sb(t_stack **b);
+void				ss(t_stack **a, t_stack **b);
+void				push(t_stack **dest, t_stack **src);
+void				pa(t_stack **a, t_stack **b);
+void				pb(t_stack **b, t_stack **a);
+void				rotate(t_stack **list);
+void				ra(t_stack **a);
+void				rb(t_stack **b);
+void				rr(t_stack **a, t_stack **b);
+void				reverse_rotate(t_stack **list);
+void				rra(t_stack **a);
+void				rrb(t_stack **b);
+void				rrr(t_stack **a, t_stack **b);
+// func check valid _arg
+void				free_list(t_stack **list);
+void				free_split(char **ar);
+char				**ft_split(char const *s, char c);
+void				ft_bzero(void *s, size_t n);
+void				*ft_calloc(size_t nmemb, size_t size);
+char				*ft_strdup(const char *s);
+char				*ft_substr(char const *s, unsigned int start, size_t len);
+size_t				ft_strlen(const char *s);
 #endif
