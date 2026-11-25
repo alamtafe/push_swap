@@ -35,6 +35,7 @@ void				mov_max_to_top_index(t_stack **a, t_stack **b, int max,
 						int *run_sa);
 void				push_chunks(t_stack **a, t_stack **b, int chunk_size,
 						int *min_max);
+int					cal_max_bits(int n);
 // prototype parsing prototype :
 t_stack				*parsing(char *arg);
 int					ft_atoi(char *str);
@@ -61,4 +62,5 @@ void				rrr(t_stack **a, t_stack **b);
 // sorting ptototype :
 void				selction_sort(t_stack **a);
 void				chunk_sort(t_stack **a);
+void				radix_sort(t_stack **a);
 #endif
