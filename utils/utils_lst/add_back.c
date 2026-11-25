@@ -3,32 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   add_back.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malouazz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: alamtafe  <alamtafe@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/23 19:12:46 by malouazz          #+#    #+#             */
-/*   Updated: 2026/11/23 19:12:54 by malouazz         ###   ########.fr       */
+/*   Created: 2026/11/09 19:00:57 by alamtafe          #+#    #+#             */
+/*   Updated: 2026/11/09 19:40:38 by alamtafe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-void    add_back(t_stack **list, t_stack *new)
+void	add_back(t_stack **stack, t_stack *new)
 {
-    t_stack  *tmp;
+	t_stack	*tmp;
 
-    if (!list)
-        return ;
-    if (!*list)
-    {
-        *list = new;
-        return ;
-    }
-    tmp = *list;
-    while(tmp->next)
-    {
-        tmp = tmp->next;
-    }
-    tmp->next = new;
-    return ;
+	if (!stack)
+		return ;
+	if (!*stack)
+	{
+		*stack = new;
+		return ;
+	}
+	tmp = *stack;
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+	}
+	tmp->next = new;
+	return ;
 }
