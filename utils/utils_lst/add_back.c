@@ -12,18 +12,18 @@
 
 #include "push_swap.h"
 
-void	add_back(t_list **list, t_list *new)
+void	add_back(t_stack **stack, t_stack *new)
 {
-	t_list *tmp;
+	t_stack *tmp;
 
-	if (!list)
+	if (!stack)
 		return ;
-	if (!*list)
+	if (!*stack)
 	{
-		*list = new;
+		*stack = new;
 		return ;
 	}
-	tmp = *list;
+	tmp = *stack;
 	while (tmp->next)
 	{
 		tmp = tmp->next;

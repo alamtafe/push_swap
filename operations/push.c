@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void	push(t_list **dest, t_list **src)
+void	push(t_stack **dest, t_stack **src)
 {
-	t_list	*first;
+	t_stack	*first;
 
 	if (!dest || !src || !*src)
 		return ;
@@ -24,13 +24,13 @@ void	push(t_list **dest, t_list **src)
 	*dest = first;
 }
 
-void	pa(t_list **a, t_list **b)
+void	pa(t_stack **a, t_stack **b)
 {
 	push(a, b);
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_list **b, t_list **a)
+void	pb(t_stack **b, t_stack **a)
 {
 	push(b, a);
 	write(1, "pb\n", 3);

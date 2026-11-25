@@ -16,48 +16,49 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_list
+typedef struct s_stack
 {
 	int				value;
 	int				index;
-	struct s_list	*next;
-}					t_list;
+	struct s_stack	*next;
+}					t_stack;
 
 //  prototype of utils for sorting:
-int					find_min(t_list *a);
-int					find_pos(t_list *a, int value);
-int					find_pos_index(t_list *a, int index);
-void				mov_min_to_top(t_list **lst, int min);
-int					is_sorted(t_list *a);
-void				set_index(t_list *lst);
+int					find_min(t_stack *a);
+int					find_pos(t_stack *a, int value);
+int					find_pos_index(t_stack *a, int index);
+void				mov_min_to_top(t_stack **stack, int min);
+int					is_sorted(t_stack *a);
+void				set_index(t_stack *stack);
 int					find_sqrt(int n);
-void				mov_max_to_top_index(t_list **a, int max);
-void				push_chunks(t_list **a, t_list **b, int chunk_size,
-						int max);
+void				mov_max_to_top_index(t_stack **a, t_stack **b, int max,
+						int *run_sa);
+void				push_chunks(t_stack **a, t_stack **b, int chunk_size,
+						int *min_max);
 // prototype parsing prototype :
-t_list				*parsing(char *arg);
+t_stack				*parsing(char *arg);
 int					ft_atoi(char *str);
-// prototype utils list  :
-void				add_back(t_list **list, t_list *new);
-t_list				*new_list(int value);
-int					lst_size(t_list *lst);
+// prototype utils stack  :
+void				add_back(t_stack **stack, t_stack *new);
+t_stack				*new_stack(int value);
+int					lst_size(t_stack *stack);
 // opration prototype :
-void				swap(t_list **list);
-void				sa(t_list **a);
-void				sb(t_list **b);
-void				ss(t_list **a, t_list **b);
-void				push(t_list **dest, t_list **src);
-void				pa(t_list **a, t_list **b);
-void				pb(t_list **b, t_list **a);
-void				rotate(t_list **list);
-void				ra(t_list **a);
-void				rb(t_list **b);
-void				rr(t_list **a, t_list **b);
-void				reverse_rotate(t_list **list);
-void				rra(t_list **a);
-void				rrb(t_list **b);
-void				rrr(t_list **a, t_list **b);
+void				swap(t_stack **stack);
+void				sa(t_stack **a);
+void				sb(t_stack **b);
+void				ss(t_stack **a, t_stack **b);
+void				push(t_stack **dest, t_stack **src);
+void				pa(t_stack **a, t_stack **b);
+void				pb(t_stack **b, t_stack **a);
+void				rotate(t_stack **stack);
+void				ra(t_stack **a);
+void				rb(t_stack **b);
+void				rr(t_stack **a, t_stack **b);
+void				reverse_rotate(t_stack **stack);
+void				rra(t_stack **a);
+void				rrb(t_stack **b);
+void				rrr(t_stack **a, t_stack **b);
 // sorting ptototype :
-void				selction_sort(t_list **a);
-void				chunk_sort(t_list **a);
+void				selction_sort(t_stack **a);
+void				chunk_sort(t_stack **a);
 #endif

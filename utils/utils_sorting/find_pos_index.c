@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	find_pos_index(t_list *a, int index)
+int	find_pos_index(t_stack *a, int index)
 {
 	int	pos;
 

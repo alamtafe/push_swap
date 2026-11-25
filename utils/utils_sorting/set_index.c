@@ -13,25 +13,25 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void	set_index(t_list *lst)
+void	set_index(t_stack *stack)
 {
-	t_list	*tmp;
-	t_list	*tmp_1;
+	t_stack	*tmp;
+	t_stack	*tmp_1;
 	int		i;
 
-	tmp_1 = lst;
-	while (lst)
+	tmp_1 = stack;
+	while (stack)
 	{
 		tmp = tmp_1;
 		i = 0;
 		while (tmp)
 		{
-			if (lst->value > tmp->value)
+			if (stack->value > tmp->value)
 				i++;
 			tmp = tmp->next;
 		}
-		lst->index = i;
-		lst = lst->next;
+		stack->index = i;
+		stack = stack->next;
 	}
 	return ;
 }

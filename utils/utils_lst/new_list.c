@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_list.c                                         :+:      :+:    :+:   */
+/*   new_stack.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamtafe  <alamtafe@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-t_list	*new_list(int value)
+t_stack	*new_stack(int value)
 {
-	t_list *list;
+	t_stack *stack;
 
-	list = malloc(sizeof(list));
-	if (!list)
+	stack = malloc(sizeof(stack));
+	if (!stack)
 		return (NULL);
-	list->value = value;
-	list->next = NULL;
-	return (list);
+	stack->value = value;
+	stack->next = NULL;
+	return (stack);
 }

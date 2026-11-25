@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	find_min(t_list *a)
+int	find_min(t_stack *a)
 {
 	int min;
 

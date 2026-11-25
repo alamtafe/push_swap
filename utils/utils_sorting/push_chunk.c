@@ -12,61 +12,81 @@
 
 #include "push_swap.h"
 
-int	chooser(t_list *a, int max, int min)
+int	chooser(t_stack *a, int min, int max)
 {
-	int	match;
+	int	pos_last;
 	int	size;
+	int	pos_front;
 	int	i;
-	int	j;
 
-	i = 0;
+	pos_front = 0;
 	size = lst_size(a);
 	while (a && (a->index < min || a->index > max))
 	{
-		i++;
+		pos_front++;
 		a = a->next;
 	}
-	match = i;
-	j = i;
+	pos_last = pos_front;
+	i = pos_front;
 	while (a)
 	{
 		if (a->index >= min && a->index <= max)
-			match = j;
-		j++;
+			pos_last = i;
+		i++;
 		a = a->next;
 	}
-	return (i < size - match);
+	return (pos_front < size - pos_last);
 }
 
-static void	rotate_to_chunk(t_list **a, int max, int min)
+static void	rotate_to_chunk(t_stack **a, t_stack **b, int *min_max, int *run_rr)
 {
-	if (chooser(*a, max, min))
-		ra(a);
+	if (chooser(*a, min_max[0], min_max[1]))
+	{
+		if (*run_rr)
+		{
+			rr(b, a);
+			*run_rr = 0;
+		}
+		else
+			ra(a);
+	}
 	else
+	{
+		if (*run_rr)
+		{
+			rb(b);
+			*run_rr = 0;
+		}
 		rra(a);
+	}
 	return ;
 }
 
-void	push_chunks(t_list **a, t_list **b, int chunk_size, int max)
+void	push_chunks(t_stack **a, t_stack **b, int chunk_size, int *min_max)
 {
 	int	mid;
 	int	j;
-	int	min;
+	int	run_rr;
 
 	j = 0;
-	min = max - chunk_size + 1;
-	mid = min - (min - max) / 2;
-	while (j < chunk_size)
+	mid = min_max[0] - (min_max[0] - min_max[1]) / 2;
+	run_rr = 0;
+	while (j < chunk_size && (*a))
 	{
-		if ((*a)->index >= min && (*a)->index <= max)
+		if ((*a)->index >= min_max[0] && (*a)->index <= min_max[1])
 		{
+			if (run_rr)
+			{
+				rb(b);
+				run_rr = 0;
+			}
 			pb(b, a);
 			if ((*b)->index <= mid)
-				rb(b);
+				run_rr = 1;
 			j++;
 		}
 		else
-			rotate_to_chunk(a, max, min);
+			rotate_to_chunk(a, b, min_max, &run_rr);
 	}
 	return ;
 }

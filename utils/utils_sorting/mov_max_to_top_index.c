@@ -12,19 +12,24 @@
 
 #include "push_swap.h"
 
-void	mov_max_to_top_index(t_list **lst, int max)
+void	mov_max_to_top_index(t_stack **a, t_stack **b, int max, int *run_sa)
 {
 	int	size;
 	int	pos;
 
-	size = lst_size(*lst);
-	pos = find_pos_index(*lst, max);
-	while (max != (*lst)->index)
+	size = lst_size(*b);
+	pos = find_pos_index(*b, max);
+	while (max != (*b)->index)
 	{
-		if (pos > size / 2)
-			rrb(lst);
+		if (max - 1 == (*b)->index)
+		{
+			pa(a, b);
+			*run_sa = 1;
+		}
+		else if (pos > size / 2)
+			rrb(b);
 		else
-			rb(lst);
+			rb(b);
 	}
 	return ;
 }

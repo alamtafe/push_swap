@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void	selction_sort(t_list **a)
+void	selction_sort(t_stack **a)
 {
-	t_list *b;
+	t_stack *b;
 
 	b = NULL;
 	while (*a)

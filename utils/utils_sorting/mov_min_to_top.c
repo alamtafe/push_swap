@@ -12,19 +12,19 @@
 
 #include "push_swap.h"
 
-void	mov_min_to_top(t_list **lst, int min)
+void	mov_min_to_top(t_stack **stack, int min)
 {
 	int pos;
 	int size;
 
-	pos = find_pos(*lst, min);
-	size = lst_size(*lst);
-	while (min != (*lst)->value)
+	pos = find_pos(*stack, min);
+	size = lst_size(*stack);
+	while (min != (*stack)->value)
 	{
 		if (pos > size / 2)
-			rra(lst);
+			rra(stack);
 		else
-			ra(lst);
+			ra(stack);
 	}
 	return ;
 }
