@@ -13,6 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -37,8 +38,18 @@ void				push_chunks(t_stack **a, t_stack **b, int chunk_size,
 						int *min_max);
 int					cal_max_bits(int n);
 double				compute_disorder(t_stack *a);
+// prototype of utils for parsing:
+long				ft_atol(char *str);
+void				free_list(t_stack **list);
+void				free_split(char **ar);
+char				**ft_split(char const *s, char c);
+void				ft_bzero(void *s, size_t n);
+void				*ft_calloc(size_t nmemb, size_t size);
+char				*ft_strdup(const char *s);
+char				*ft_substr(char const *s, unsigned int start, size_t len);
+size_t				ft_strlen(const char *s);
 // prototype parsing prototype :
-t_stack				*parsing(char *arg);
+t_stack				*parsing(int ac, char **av);
 // prototype utils stack  :
 void				add_back(t_stack **stack, t_stack *new);
 t_stack				*new_list(int value);
@@ -64,4 +75,5 @@ void				selction_sort(t_stack **a);
 void				chunk_sort(t_stack **a);
 void				radix_sort(t_stack **a);
 void				adaptive(t_stack **a);
+
 #endif

@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   new_list.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamtafe  <alamtafe@student.1337.ma >      +#+  +:+       +#+        */
+/*   By: malouazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/23 22:43:03 by alamtafe          #+#    #+#             */
-/*   Updated: 2026/11/25 20:02:20 by alamtafe         ###   ########.fr       */
+/*   Created: 2026/11/23 19:23:32 by malouazz          #+#    #+#             */
+/*   Updated: 2026/11/23 19:23:34 by malouazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*new_list(int value)
+t_stack  *new_list(int value)
 {
-	t_stack	*stack;
+    t_stack *list;
 
-	stack = malloc(sizeof(stack));
-	if (!stack)
-		return (NULL);
-	stack->value = value;
-	stack->next = NULL;
-	return (stack);
+    list = malloc(sizeof(t_stack));
+    if(!list)
+        return (NULL);
+    list->value = value;
+    list->next = NULL;
+    return (list);
 }

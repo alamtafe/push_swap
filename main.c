@@ -13,33 +13,27 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void	print_stack(t_stack *stack)
+void    print_stack(t_stack *stack)
 {
-	while (stack)
-	{
-		printf("%d\n", stack->value);
-		stack = stack->next;
-	}
-	return ;
+    while(stack)
+    {
+        printf("%d\n", stack->index);
+        stack = stack->next;
+    }
+    return ;
 }
 
-int	main(int argc, char **argv)
+int	main(int ac, char **av)
 {
-	t_stack  *a;
-	int     i;
+	t_stack *list;
 
-	i = 1;
-	if (argc == 1)
-	{
-		write(2, "error\n", 6);
-		return (0);
-	}
-	a = NULL;
-	while (argv[i])
-	{
-		add_back(&a, parsing(argv[i]));
-		i++;
-	}
-	set_index(a);
-	chunk_sort(&a);
+	if(ac < 2)
+	  return (0);
+	list = parsing(ac, av);
+	if(!list)
+	   exit(1);
+	set_index(list);
+	selction_sort(&list);
+	free_list(&list);
+	return (0);
 }

@@ -17,12 +17,14 @@ void	selction_sort(t_stack **a)
 	t_stack	*b;
 
 	b = NULL;
-	while (*a)
+	int size = lst_size(*a);
+	while (size > 1)
 	{
+		mov_min_to_top(a, find_min(*a));
 		if (is_sorted(*a))
 			break ;
-		mov_min_to_top(a, find_min(*a));
 		pb(&b, a);
+		size--;
 	}
 	while (b)
 		pa(a, &b);
