@@ -6,7 +6,7 @@
 /*   By: alamtafe  <alamtafe@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 12:11:42 by alamtafe          #+#    #+#             */
-/*   Updated: 2026/11/17 12:12:03 by alamtafe         ###   ########.fr       */
+/*   Updated: 2026/11/25 18:43:06 by alamtafe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	find_pos(t_stack *a, int value)
 {
-	int pos;
+	int	pos;
 
 	pos = 0;
 	while (value != a->value)

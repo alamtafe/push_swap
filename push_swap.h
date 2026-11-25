@@ -36,12 +36,12 @@ void				mov_max_to_top_index(t_stack **a, t_stack **b, int max,
 void				push_chunks(t_stack **a, t_stack **b, int chunk_size,
 						int *min_max);
 int					cal_max_bits(int n);
+double				compute_disorder(t_stack *a);
 // prototype parsing prototype :
 t_stack				*parsing(char *arg);
-int					ft_atoi(char *str);
 // prototype utils stack  :
 void				add_back(t_stack **stack, t_stack *new);
-t_stack				*new_stack(int value);
+t_stack				*new_list(int value);
 int					lst_size(t_stack *stack);
 // opration prototype :
 void				swap(t_stack **stack);
@@ -63,4 +63,5 @@ void				rrr(t_stack **a, t_stack **b);
 void				selction_sort(t_stack **a);
 void				chunk_sort(t_stack **a);
 void				radix_sort(t_stack **a);
+void				adaptive(t_stack **a);
 #endif

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_stack.c                                         :+:      :+:    :+:   */
+/*   new_list.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamtafe  <alamtafe@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/09 19:00:57 by alamtafe          #+#    #+#             */
-/*   Updated: 2026/11/09 19:40:35 by alamtafe         ###   ########.fr       */
+/*   Created: 2026/11/23 22:43:03 by alamtafe          #+#    #+#             */
+/*   Updated: 2026/11/25 20:02:20 by alamtafe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*new_stack(int value)
+t_stack	*new_list(int value)
 {
-	t_stack *stack;
+	t_stack	*stack;
 
 	stack = malloc(sizeof(stack));
 	if (!stack)

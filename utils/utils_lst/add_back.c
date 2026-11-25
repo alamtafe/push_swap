@@ -14,7 +14,7 @@
 
 void	add_back(t_stack **stack, t_stack *new)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!stack)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: alamtafe  <alamtafe@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 12:13:12 by alamtafe          #+#    #+#             */
-/*   Updated: 2026/11/17 12:13:15 by alamtafe         ###   ########.fr       */
+/*   Updated: 2026/11/25 18:43:44 by alamtafe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	find_min(t_stack *a)
 {
-	int min;
+	int	min;
 
 	min = a->value;
 	while (a)
