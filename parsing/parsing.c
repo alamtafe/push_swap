@@ -85,22 +85,25 @@ t_stack	*parsing(int ac, char **av)
 {
 	t_stack	*list;
 	char	 **pars;
-	int		i;
+	int start;
 
+	start = 1;
 	list = NULL;
-	i = 1;
-	while (i < ac)
+	while (start < ac)
 	{
-		pars = ft_split(av[i], ' ');
-		if (!add_parst(&list, pars))
+		if(!check_is_flag(av[start]))
 		{
+		  pars = ft_split(av[start], ' ');
+		 if (!add_parst(&list, pars))
+		 {
 			free_split(pars);
 			free_list(&list);
 			write(2, "Error\n", 6);
 			return (NULL);
-		}
-		free_split(pars);
-		i++;
+		 }
+	      free_split(pars);
+	   }
+		start++;
 	}
 	return (list);
 }
