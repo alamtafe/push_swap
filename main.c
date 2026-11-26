@@ -25,7 +25,7 @@
 int  write_err(void)
 {
 	write(2, "Error\n", 6);
-	return (1);
+	return (1);    
 }
 int	main(int ac, char **av)
 {

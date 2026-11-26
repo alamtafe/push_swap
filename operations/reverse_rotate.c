@@ -27,7 +27,6 @@ void	rrb(t_stack **b)
 	reverse_rotate(b);
 	write(1, "rrb\n", 4);
 }
-
 void	rrr(t_stack **a, t_stack **b)
 {
 	reverse_rotate(a);
