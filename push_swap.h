@@ -24,18 +24,15 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-// enumation of strategy 
-typedef enum s_strategy
-{
-	SIMPLE = 0,
-	MEDIUM = 1,
-	COMPLEX = 2,
-	ADAPTIVE = 3,
-	BAD_FLAG = 4
-}	t_strategy;
-void        sort_stack(t_stack **a, t_strategy strategy);
+# define SIMPLE 0
+# define  MEDIUM 1
+# define COMPLEX 2
+# define ADAPTIVE 3
+# define BAD_FLAG 4
+
+void        sort_stack(t_stack **a, int strategy);
 int         check_is_flag(char *av);
-t_strategy  get_flag(char *av);
+int  get_flag(char *av);
 //  prototype of utils for sorting:
 int					find_min(t_stack *a);
 int					find_pos(t_stack *a, int value);

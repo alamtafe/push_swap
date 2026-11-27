@@ -12,7 +12,8 @@ SRC = main.c utils/utils_lst/add_back.c utils/utils_lst/ft_atoi.c utils/utils_ls
 		utils/utils_sorting/cal_max_bits.c utils/utils_sorting/compute_disorder.c \
 		utils/utils_parsing/ft_atol.c  utils/utils_parsing/ft_bzero.c utils/utils_parsing/ft_calloc.c\
 		utils/utils_parsing/ft_strdup.c utils/utils_parsing/ft_strlen.c utils/utils_parsing/ft_substr.c \
-		utils/utils_parsing/free_list.c utils/utils_parsing/free_split.c  utils/utils_parsing/ft_split.c\
+		utils/utils_parsing/free_list.c utils/utils_parsing/free_split.c  utils/utils_parsing/ft_split.c utils/utils_parsing/ft_strcmp.c\
+		parsing/flag.c
 
 
 
