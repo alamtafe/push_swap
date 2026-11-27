@@ -4,7 +4,7 @@ int	main(int ac, char **av)
 {
 	t_stacks stacks;
 
-	stacks.a = parsing(ac, av);
+	stacks.a = bonus_parsing(ac, av);
     if(!stacks.a)
         return(0);
     checker(&stacks);

@@ -13,29 +13,43 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void	print_stack(t_stack *stack)
+int  write_err(void)
 {
-	while (stack)
-	{
-		printf("%d\n", stack->index);
-		stack = stack->next;
-	}
-	return ;
+	write(2, "Error\n", 6);
+	return (1);    
 }
-
 int	main(int ac, char **av)
 {
 	t_stacks	stacks;
 	t_bench		bench;
+	int strategy;
+	int i;
+	int found_flag;
 
-	if (ac < 2)
-		return (0);
-	stacks.a = parsing(ac, av);
-	if (!stacks.a)
-		exit(1);
+    found_flag = 0;
+	strategy = 4;
 	ft_bzero(&bench, sizeof(t_bench));
+	if(ac < 2)
+	  return (0);
+	i = 1;
+	while(i < ac)
+	{
+	  if(check_is_flag(av[i]))
+	  {
+		found_flag++;
+		if(found_flag > 1)
+			return(write_err());
+		strategy = get_flag(av[i]);
+		 if(strategy == BAD_FLAG)
+		   return(write_err());
+ 	 }
+      i++;
+   	}
+	stacks.a = parsing(ac, av);
+	if(!stacks.a)
+	   exit(1);
 	set_index(stacks.a);
-	adaptive(&stacks, &bench);
+	sort_stack(&stacks, &bench, strategy);
 	benchmark(&bench);
 	free_list(&stacks.a);
 	return (0);

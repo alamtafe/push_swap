@@ -23,6 +23,7 @@ typedef struct s_stack
 	int				index;
 	struct s_stack	*next;
 }					t_stack;
+
 typedef struct s_bench
 {
 	int				bench;
@@ -42,11 +43,22 @@ typedef struct s_bench
 	int				rrb;
 	int				rrr;
 }					t_bench;
+
 typedef struct s_stacks
 {
 	t_stack			*a;
 	t_stack			*b;
 }					t_stacks;
+
+# define SIMPLE 0
+# define MEDIUM 1
+# define COMPLEX 2
+# define ADAPTIVE 3
+# define BENCH 4
+# define BAD_FLAG 5
+
+int					check_is_flag(char *av);
+int					get_flag(char *av);
 //  prototype of utils for sorting:
 int					find_min(t_stack *a);
 int					find_pos(t_stack *a, int value);
@@ -75,6 +87,7 @@ size_t				ft_strlen(const char *s);
 int					ft_strcmp(const char *s1, const char *s2);
 // prototype parsing prototype :
 t_stack				*parsing(int ac, char **av);
+t_stack				*bonus_parsing(int ac, char **av);
 // prototype utils stack  :
 void				add_back(t_stack **stack, t_stack *new);
 t_stack				*new_list(int value);
@@ -95,16 +108,18 @@ void				reverse_rotate(t_stack **stack);
 void				rra(t_stack **a, t_bench *bench, int print_op);
 void				rrb(t_stack **b, t_bench *bench, int print_op);
 void				rrr(t_stack **a, t_stack **b, t_bench *bench, int print_op);
-// sorting prototype :
+// sorting ptototype :
 void				selction_sort(t_stacks *stacks, t_bench *bench);
 void				chunk_sort(t_stacks *stacks, t_bench *bench);
 void				radix_sort(t_stacks *stacks, t_bench *bench);
 void				adaptive(t_stacks *stacks, t_bench *bench);
-// bench prototype:
-void				benchmark(t_bench *bench);
-// utils for bench :
-int					ft_putnbr(int n);
-int					ft_putstr(char *s);
+void				sort_stack(t_stacks *stacks, t_bench *bench, int strategy);
+// print error
+int					write_err(void);
 // bonus prototyoe :
 void				checker(t_stacks *stacks);
+// bench prototype:
+void				benchmark(t_bench *bench);
+int					ft_putnbr(int n);
+int					ft_putstr(char *s);
 #endif
