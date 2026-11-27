@@ -12,18 +12,22 @@
 
 #include "push_swap.h"
 
-void	adaptive(t_stack **a)
+void	adaptive(t_stacks *stacks, t_bench *bench)
 {
-	double	disored;
-
-	disored = compute_disorder(*a);
-	if (disored == 0.0)
+	bench->disorder = compute_disorder(stacks->a);
+	if (bench->disorder  == 0.0)
 		return ;
-	if (disored < 0.2)
-		selction_sort(a);
-	else if (disored >= 0.2 && disored < 0.5)
-		chunk_sort(a);
-	else
-		radix_sort(a);
+	if (bench->disorder  < 0.2)
+	{
+		selction_sort(stacks, bench);
+		bench->strategy = "adaptive O(n^2)";
+	}else if (bench->disorder  >= 0.2 && bench->disorder  < 0.5)
+	{	
+		chunk_sort(stacks, bench);
+		bench->strategy = "adaptive O(n√n)";
+	}else{
+		radix_sort(stacks, bench);
+		bench->strategy = "adaptive O(n log n)";
+	}
 	return ;
 }

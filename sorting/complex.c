@@ -12,22 +12,21 @@
 
 #include "push_swap.h"
 
-static void	back_to_a(t_stack **a, t_stack **b)
+static void	back_to_a(t_stack **a, t_stack **b, t_bench *bench)
 {
 	while (*b)
-		pa(a, b);
+		pa(a, b, bench, 1);
 	return ;
 }
-void	radix_sort(t_stack **a)
+void	radix_sort(t_stacks *stacks, t_bench *bench)
 {
-	t_stack	*b;
-	int		max_bits;
-	int		size;
-	int		i;
-	int		j;
+	int	max_bits;
+	int	size;
+	int	i;
+	int	j;
 
-	b = NULL;
-	size = lst_size(*a);
+	stacks->b = NULL;
+	size = lst_size(stacks->a);
 	max_bits = cal_max_bits(size - 1);
 	i = 0;
 	while (i < max_bits)
@@ -35,13 +34,13 @@ void	radix_sort(t_stack **a)
 		j = 0;
 		while (j < size)
 		{
-			if ((*a)->index >> i & 1)
-				ra(a);
+			if (stacks->a->index >> i & 1)
+				ra(&stacks->a, bench, 1);
 			else
-				pb(&b, a);
+				pb(&stacks->b, &stacks->a, bench, 1);
 			j++;
 		}
-		back_to_a(a,&b);
+		back_to_a(&stacks->a, &stacks->b, bench);
 		i++;
 	}
 	return ;

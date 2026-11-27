@@ -14,21 +14,30 @@ void	swap(t_stack **stack)
 	*stack = tmp;
 }
 
-void	sa(t_stack **a)
+void	sa(t_stack **a, t_bench *bench, int print_op)
 {
 	swap(a);
-	write(1, "sa\n", 3);
+	if (print_op)
+		write(1, "sa\n", 3);
+	bench->sa++;
+	bench->ops++;
 }
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, t_bench *bench, int print_op)
 {
 	swap(b);
-	write(1, "sb\n", 3);
+	if (print_op)
+		write(1, "sb\n", 3);
+	bench->sb++;
+	bench->ops++;
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, t_bench *bench, int print_op)
 {
 	swap(a);
 	swap(b);
-	write(1, "ss\n", 3);
+	if (print_op)
+		write(1, "ss\n", 3);
+	bench->ss++;
+	bench->ops++;
 }

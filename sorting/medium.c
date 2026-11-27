@@ -41,18 +41,18 @@ void	calculate_chunk(t_stack *stack, int *chunks, int *chunk_size,
 	return ;
 }
 
-void	back_to_a(t_stack **a, t_stack **b, int max)
+void	back_to_a(t_stack **a, t_stack **b, int max, t_bench *bench)
 {
 	int	run_sa;
 
 	run_sa = 0;
 	while (*b)
 	{
-		mov_max_to_top_index(a, b, max, &run_sa);
-		pa(a, b);
+		mov_max_to_top_index(a, b, max, &run_sa, bench);
+		pa(a, b, bench,1);
 		if (run_sa)
 		{
-			sa(a);
+			sa(a, bench,1);
 			run_sa = 0;
 			max--;
 		}
@@ -60,21 +60,20 @@ void	back_to_a(t_stack **a, t_stack **b, int max)
 	}
 }
 
-void	chunk_sort(t_stack **a)
+void	chunk_sort(t_stacks *stacks, t_bench *bench)
 {
 	int		chunks;
 	int		chunk_size;
 	int		remiander;
-	t_stack	*b;
 	int		min_max[2];
 
-	b = NULL;
-	calculate_chunk(*a, &chunks, &chunk_size, &remiander);
+	stacks->b = NULL;
+	calculate_chunk(stacks->a, &chunks, &chunk_size, &remiander);
+	min_max[0] = 0; 
 	min_max[1] = chunk_size - 1;
-	min_max[0] = 0;
 	while (chunks > 0)
 	{
-		push_chunks(a, &b, chunk_size, min_max);
+		push_chunks(stacks, chunk_size, min_max, bench);
 		chunks--;
 		if (chunks - 1 == 0)
 			chunk_size += remiander;
@@ -84,6 +83,6 @@ void	chunk_sort(t_stack **a)
 			min_max[1] += chunk_size;
 		}
 	}
-	back_to_a(a, &b, min_max[1]);
+	back_to_a(&stacks->a, &stacks->b, min_max[1], bench);
 	return ;
 }

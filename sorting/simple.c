@@ -12,21 +12,21 @@
 
 #include "push_swap.h"
 
-void	selction_sort(t_stack **a)
+void	selction_sort(t_stacks *stacks, t_bench *bench)
 {
-	t_stack	*b;
+	int		size;
 
-	b = NULL;
-	int size = lst_size(*a);
+	size = lst_size(stacks->a);
+	stacks->b = NULL;
 	while (size > 1)
 	{
-		mov_min_to_top(a, find_min(*a));
-		if (is_sorted(*a))
+		mov_min_to_top(&stacks->a, find_min(stacks->a), size, bench);
+		if (is_sorted(stacks->a))
 			break ;
-		pb(&b, a);
+		pb(&stacks->b, &stacks->a, bench,1);
 		size--;
 	}
-	while (b)
-		pa(a, &b);
+	while (stacks->b)
+		pa(&stacks->a, &stacks->b, bench,1);
 	return ;
 }
