@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alamtafe  <alamtafe@student.1337.ma >      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/27 17:54:32 by alamtafe          #+#    #+#             */
+/*   Updated: 2026/11/27 17:22:40 by alamtafe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	reverse_rotate(t_stack **stack)
@@ -24,6 +36,7 @@ void	rra(t_stack **a, t_bench *bench, int print_op)
 	bench->rra++;
 	bench->ops++;
 }
+
 void	rrb(t_stack **b, t_bench *bench, int print_op)
 {
 	reverse_rotate(b);
@@ -32,6 +45,7 @@ void	rrb(t_stack **b, t_bench *bench, int print_op)
 	bench->rrb++;
 	bench->ops++;
 }
+
 void	rrr(t_stack **a, t_stack **b, t_bench *bench, int print_op)
 {
 	reverse_rotate(a);

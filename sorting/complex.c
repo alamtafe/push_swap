@@ -18,6 +18,7 @@ static void	back_to_a(t_stack **a, t_stack **b, t_bench *bench)
 		pa(a, b, bench, 1);
 	return ;
 }
+
 void	radix_sort(t_stacks *stacks, t_bench *bench)
 {
 	int	max_bits;

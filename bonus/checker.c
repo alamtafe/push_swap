@@ -1,6 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alamtafe  <alamtafe@student.1337.ma >      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/27 17:54:31 by alamtafe          #+#    #+#             */
+/*   Updated: 2026/11/27 17:31:28 by alamtafe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
-#include "push_swap.h"
-#include <stdio.h>
+#include "push_swap_bonus.h"
+
+int	write_err(void)
+{
+	write(2, "Error\n", 6);
+	return (0);
+}
 
 int	run_ops(t_stacks *stacks, char *line, t_bench *bench)
 {
@@ -15,7 +32,7 @@ int	run_ops(t_stacks *stacks, char *line, t_bench *bench)
 	else if (ft_strcmp(line, "sb\n") == 0)
 		sb(&stacks->b, bench, 0);
 	else if (ft_strcmp(line, "ss\n") == 0)
-		ss(&stacks->a, &stacks->b, bench,0);
+		ss(&stacks->a, &stacks->b, bench, 0);
 	else if (ft_strcmp(line, "rra\n") == 0)
 		rra(&stacks->a, bench, 0);
 	else if (ft_strcmp(line, "rrb\n") == 0)
@@ -26,30 +43,31 @@ int	run_ops(t_stacks *stacks, char *line, t_bench *bench)
 		pa(&stacks->a, &stacks->b, bench, 0);
 	else if (ft_strcmp(line, "pb\n") == 0)
 		pb(&stacks->b, &stacks->a, bench, 0);
-	else 
-	{
-		write(1,"Error\n",6);
-		return(0);
-	}
-	return(1);
+	else
+		return (write_err());
+	return (1);
 }
+
 void	checker(t_stacks *stacks)
 {
-	t_bench bench;
-	char *line;
+	t_bench	bench;
+	char	*line;
+
 	stacks->b = NULL;
 	ft_bzero(&bench, sizeof(t_bench));
-	while ((line = get_next_line(0)))
+	line = get_next_line(0);
+	while (line)
 	{
 		if (!run_ops(stacks, line, &bench))
 			return ;
 		free(line);
+		line = get_next_line(0);
 	}
 	if (stacks->b)
 		write(1, "KO\n", 3);
 	else if (is_sorted(stacks->a))
 		write(1, "OK\n", 3);
-	else 
-		write(1,"KO\n",3);
+	else
+		write(1, "KO\n", 3);
 	return ;
 }

@@ -15,20 +15,23 @@
 void	adaptive(t_stacks *stacks, t_bench *bench)
 {
 	bench->disorder = compute_disorder(stacks->a);
-	if (bench->disorder  == 0.0)
+	if (bench->disorder == 0.0)
 	{
 		bench->strategy = "Already sorted";
 		return ;
 	}
-	if (bench->disorder  < 0.2)
+	if (bench->disorder < 0.2)
 	{
 		selction_sort(stacks, bench);
 		bench->strategy = "adaptive O(n^2)";
-	}else if (bench->disorder  >= 0.2 && bench->disorder  < 0.5)
-	{	
+	}
+	else if (bench->disorder >= 0.2 && bench->disorder < 0.5)
+	{
 		chunk_sort(stacks, bench);
 		bench->strategy = "adaptive O(n√n)";
-	}else{
+	}
+	else
+	{
 		radix_sort(stacks, bench);
 		bench->strategy = "adaptive O(n log n)";
 	}

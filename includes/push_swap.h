@@ -68,8 +68,8 @@ void				mov_min_to_top(t_stack **stack, int min, int size,
 int					is_sorted(t_stack *a);
 void				set_index(t_stack *stack);
 int					find_sqrt(int n);
-void				mov_max_to_top_index(t_stack **a, t_stack **b, int max,
-						int *run_sa, t_bench *bench);
+void				mov_max_to_top_index(t_stacks *stacks, int max, int *run_sa,
+						t_bench *bench);
 void				push_chunks(t_stacks *stacks, int chunk_size, int *min_max,
 						t_bench *bench);
 int					cal_max_bits(int n);

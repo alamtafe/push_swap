@@ -12,25 +12,25 @@
 
 #include "push_swap.h"
 
-void	mov_max_to_top_index(t_stack **a, t_stack **b, int max, int *run_sa,
+void	mov_max_to_top_index(t_stacks *stacks, int max, int *run_sa,
 		t_bench *bench)
 {
 	int	size;
 	int	pos;
 
-	size = lst_size(*b);
-	pos = find_pos_index(*b, max);
-	while (max != (*b)->index)
+	size = lst_size(stacks->b);
+	pos = find_pos_index(stacks->b, max);
+	while (max != stacks->b->index)
 	{
-		if (max - 1 == (*b)->index)
+		if (max - 1 == stacks->b->index)
 		{
-			pa(a, b, bench, 1);
+			pa(&stacks->a, &stacks->b, bench, 1);
 			*run_sa = 1;
 		}
 		else if (pos > size / 2)
-			rrb(b, bench, 1);
+			rrb(&stacks->b, bench, 1);
 		else
-			rb(b, bench, 1);
+			rb(&stacks->b, bench, 1);
 	}
 	return ;
 }

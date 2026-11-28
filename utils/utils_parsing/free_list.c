@@ -14,8 +14,9 @@
 
 void	free_list(t_stack **list)
 {
-	t_stack *temp;
-	if(!list)
+	t_stack	*temp;
+
+	if (!list)
 	{
 		return ;
 	}

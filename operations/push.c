@@ -32,6 +32,7 @@ void	pa(t_stack **a, t_stack **b, t_bench *bench, int print_op)
 	bench->pa++;
 	bench->ops++;
 }
+
 void	pb(t_stack **b, t_stack **a, t_bench *bench, int print_op)
 {
 	push(b, a);

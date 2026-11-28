@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-t_stack  *new_list(int value)
+t_stack	*new_list(int value)
 {
-    t_stack *list;
+	t_stack	*list;
 
-    list = malloc(sizeof(t_stack));
-    if(!list)
-        return (NULL);
-    list->value = value;
-    list->next = NULL;
-    return (list);
+	list = malloc(sizeof(t_stack));
+	if (!list)
+		return (NULL);
+	list->value = value;
+	list->next = NULL;
+	return (list);
 }

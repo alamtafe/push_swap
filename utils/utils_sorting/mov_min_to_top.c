@@ -20,9 +20,9 @@ void	mov_min_to_top(t_stack **stack, int min, int size, t_bench *bench)
 	while (min != (*stack)->value)
 	{
 		if (pos > size / 2)
-			rra(stack, bench,1);
+			rra(stack, bench, 1);
 		else
-			ra(stack, bench,1);
+			ra(stack, bench, 1);
 	}
 	return ;
 }

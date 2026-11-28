@@ -14,7 +14,7 @@
 
 void	selction_sort(t_stacks *stacks, t_bench *bench)
 {
-	int		size;
+	int	size;
 
 	size = lst_size(stacks->a);
 	stacks->b = NULL;
@@ -23,10 +23,10 @@ void	selction_sort(t_stacks *stacks, t_bench *bench)
 		mov_min_to_top(&stacks->a, find_min(stacks->a), size, bench);
 		if (is_sorted(stacks->a))
 			break ;
-		pb(&stacks->b, &stacks->a, bench,1);
+		pb(&stacks->b, &stacks->a, bench, 1);
 		size--;
 	}
 	while (stacks->b)
-		pa(&stacks->a, &stacks->b, bench,1);
+		pa(&stacks->a, &stacks->b, bench, 1);
 	return ;
 }

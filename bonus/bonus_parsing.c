@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 #define INT_MAX 2147483647
 #define INT_MIN -2147483648
@@ -82,6 +82,7 @@ static int	add_parst(t_stack **list, char **par)
 	}
 	return (1);
 }
+
 t_stack	*bonus_parsing(int ac, char **av)
 {
 	t_stack	*list;
