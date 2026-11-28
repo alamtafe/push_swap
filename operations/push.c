@@ -24,14 +24,20 @@ void	push(t_stack **dest, t_stack **src)
 	*dest = first;
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b, t_bench *bench, int print_op)
 {
 	push(a, b);
-	write(1, "pa\n", 3);
+	if (print_op)
+		write(1, "pa\n", 3);
+	bench->pa++;
+	bench->ops++;
 }
 
-void	pb(t_stack **b, t_stack **a)
+void	pb(t_stack **b, t_stack **a, t_bench *bench, int print_op)
 {
 	push(b, a);
-	write(1, "pb\n", 3);
+	if (print_op)
+		write(1, "pb\n", 3);
+	bench->pb++;
+	bench->ops++;
 }

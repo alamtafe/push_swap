@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamtafe  <alamtafe@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/09 19:00:57 by alamtafe          #+#    #+#             */
-/*   Updated: 2026/11/09 19:40:46 by alamtafe         ###   ########.fr       */
+/*   Created: 2026/11/27 17:54:31 by alamtafe          #+#    #+#             */
+/*   Updated: 2026/11/27 18:59:55 by alamtafe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-int	ft_atoi(char *str)
+int	main(int ac, char **av)
 {
-	int i;
-	int sign;
-	int res;
+	t_stacks	stacks;
 
-	sign = 1;
-	res = 0;
-	i = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = str[i] - '0' + res * 10;
-		i++;
-	}
-	return (res * sign);
+	stacks.a = bonus_parsing(ac, av);
+	if (!stacks.a)
+		return (0);
+	checker(&stacks);
+	free_list(&stacks.a);
+	return (0);
 }

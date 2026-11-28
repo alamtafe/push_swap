@@ -10,12 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void *result;
+	void	*result;
 
 	if (nmemb != 0 && size > SIZE_MAX / nmemb)
 		return (NULL);

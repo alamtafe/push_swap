@@ -44,10 +44,10 @@ static void	*free_res(char **res)
 
 char	**ft_split(char const *s, char c)
 {
-	char **res;
-	const char *start_s;
+	char		**res;
+	const char	*start_s;
 
-	int(i), (j);
+	int (i), (j);
 	j = 0;
 	i = 0;
 	res = (char **)ft_calloc(count_w(s, c) + 1, sizeof(char *));
