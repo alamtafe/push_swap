@@ -16,7 +16,10 @@ void	adaptive(t_stacks *stacks, t_bench *bench)
 {
 	bench->disorder = compute_disorder(stacks->a);
 	if (bench->disorder  == 0.0)
+	{
+		bench->strategy = "Already sorted";
 		return ;
+	}
 	if (bench->disorder  < 0.2)
 	{
 		selction_sort(stacks, bench);

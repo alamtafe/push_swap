@@ -37,6 +37,6 @@ void        sort_stack(t_stacks *stacks, t_bench *bench, int  strategy)
       bench->disorder = compute_disorder(stacks->a);
       radix_sort(stacks, bench);
       bench->strategy = "Complex o(n log n)";
-    }else
+    }else 
      adaptive(stacks, bench);
 }  
